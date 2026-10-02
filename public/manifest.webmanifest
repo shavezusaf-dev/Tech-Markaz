@@ -1,0 +1,46 @@
+﻿{
+  "name": "Tech Markaz — Premium Electronics Marketplace",
+  "short_name": "Tech Markaz",
+  "description": "Pakistan's premium marketplace for smartphones, audio, smart TVs, and more — with verified sellers and fast nationwide delivery.",
+  "start_url": "/?pwa=1",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF1F9",
+  "theme_color": "#0047FF",
+  "categories": ["shopping", "electronics", "business"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Shop",
+      "short_name": "Shop",
+      "url": "/shop",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "My Orders",
+      "short_name": "Orders",
+      "url": "/account/orders",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Support",
+      "short_name": "Support",
+      "url": "/support",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    }
+  ]
+}
