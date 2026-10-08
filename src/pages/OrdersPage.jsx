@@ -46,12 +46,9 @@ export default function OrdersPage() {
               >
                 Sign In
               </button>
-              <button
-                onClick={() => document.dispatchEvent(new Event('open-track'))}
-                className="btn-ghost w-full"
-              >
-                Track Order as Guest
-              </button>
+             <button onClick={() => document.dispatchEvent(new CustomEvent('open-track', { detail: { orderNumber: o.order_number || o.id.split('-')[0].toUpperCase() } }))}>
+  Track Order
+</button>
             </div>
           </div>
         </Reveal>
@@ -135,7 +132,7 @@ export default function OrdersPage() {
                       <div className="text-[16px] font-black text-ink">{fmt(o.total_amount)}</div>
                     </div>
                     <button
-                      onClick={() => document.dispatchEvent(new Event('open-track'))}
+                      onClick={() => document.dispatchEvent(new CustomEvent('open-track', { detail: { orderNumber: o.order_number || o.id.split('-')[0].toUpperCase() } }))}
                       className="btn-ghost text-xs py-2.5 px-4"
                     >
                       Track Order
@@ -150,3 +147,4 @@ export default function OrdersPage() {
     </div>
   );
 }
+

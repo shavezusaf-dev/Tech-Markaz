@@ -24,15 +24,28 @@ import SellerApp from './seller/SellerApp';
 import SupportPage from './pages/SupportPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 
+// Detect if we're on seller.techmarkaz.vercel.app (or local seller host)
+const isSellerHost = () =>
+  typeof window !== 'undefined' &&
+  window.location.hostname.startsWith('seller.');
+
+function RootRoute() {
+  if (isSellerHost()) return <Navigate to="/seller" replace />;
+  return <HomePage />;
+}
+
 export default function App() {
   return (
     <Routes>
-      <Route path="/seller/*" element={<SellerApp />} />`n      <Route path="/reset-password" element={<ResetPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
+
+      <Route path="/seller/*" element={<SellerApp />} />
 
       <Route path="/" element={<CustomerLayout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<RootRoute />} />
         <Route path="shop" element={<ShopPage />} />
-        <Route path="product/:id" element={<ProductDetailPage />} />`n        <Route path="support" element={<SupportPage />} />
+        <Route path="product/:id" element={<ProductDetailPage />} />
+        <Route path="support" element={<SupportPage />} />
         <Route path="account" element={<AccountPage />} />
         <Route path="account/orders" element={<OrdersPage />} />
         <Route path="account/wishlist" element={<WishlistPage />} />
@@ -45,12 +58,13 @@ export default function App() {
         <Route path="account/settings/about" element={<AboutPage />} />
         <Route path="account/settings/terms" element={<TermsPage />} />
         <Route path="account/settings/returns" element={<ReturnsPage />} />
-        <Route path="account/settings/payments" element={<PaymentsPage />} />`n        <Route path="account/settings/security" element={<SecurityPage />} />`n        <Route path="account/settings/privacy" element={<PrivacyPage />} />`n        <Route path="account/settings/app" element={<AppPage />} />`n        <Route path="account/settings/delete" element={<DeletePage />} />
+        <Route path="account/settings/payments" element={<PaymentsPage />} />
+        <Route path="account/settings/security" element={<SecurityPage />} />
+        <Route path="account/settings/privacy" element={<PrivacyPage />} />
+        <Route path="account/settings/app" element={<AppPage />} />
+        <Route path="account/settings/delete" element={<DeletePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );
 }
-
-
-

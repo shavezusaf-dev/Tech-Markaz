@@ -32,7 +32,7 @@ export default function Footer() {
           </h3>
           <ul className="space-y-2.5">
             <li><Link to="/account/settings/about" className="text-[#8894AC] text-[13px] hover:text-accent transition">About Us</Link></li>
-            <li><Link to="/seller" className="text-[#8894AC] text-[13px] hover:text-accent transition">Become a Seller</Link></li>
+            <li><a href="https://seller.tech-markaz.vercel.app" className="text-[#8894AC] text-[13px] hover:text-accent transition">Become a Seller</a></li>
             <li><Link to="/account/settings/terms" className="text-[#8894AC] text-[13px] hover:text-accent transition">Terms of Service</Link></li>
           </ul>
         </div>
@@ -63,4 +63,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
 

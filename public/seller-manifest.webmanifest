@@ -1,0 +1,23 @@
+﻿{
+  "id": "/seller",
+  "name": "Tech Markaz Seller Center",
+  "short_name": "TM Seller",
+  "description": "Manage your Tech Markaz store — orders, products, chat, and payouts.",
+  "start_url": "/seller",
+  "scope": "/seller/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF1F9",
+  "theme_color": "#0029A3",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "/seller-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/seller-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Dashboard", "short_name": "Dashboard", "url": "/seller", "icons": [{ "src": "/seller-icon.svg", "sizes": "any" }] },
+    { "name": "Orders", "short_name": "Orders", "url": "/seller/orders", "icons": [{ "src": "/seller-icon.svg", "sizes": "any" }] },
+    { "name": "Messages", "short_name": "Messages", "url": "/seller/messages", "icons": [{ "src": "/seller-icon.svg", "sizes": "any" }] },
+    { "name": "Products", "short_name": "Products", "url": "/seller/inventory", "icons": [{ "src": "/seller-icon.svg", "sizes": "any" }] }
+  ]
+}

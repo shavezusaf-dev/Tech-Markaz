@@ -26,7 +26,7 @@
   --c-surface-3: 19 25 40;
 }
 
-html, body { height: 100%; overflow-x: hidden; }
+html, body { height: 100%; overflow-x: clip; }
 
 body {
   background: var(--bg);
@@ -418,3 +418,52 @@ input[type=number]::-webkit-outer-spin-button {
       0 4px 18px rgba(0,0,0,0.35);
   }
 }
+
+/* ───── Global horizontal scroll kill ───── */
+html, body, #root {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+* {
+  min-width: 0;
+}
+
+/* Any element that accidentally overflows */
+img, video, svg, iframe, table, pre {
+  max-width: 100%;
+}
+
+/* Marquee in announcement bar — clip it */
+.announce-inner, .animate-marquee {
+  overflow: hidden;
+}
+
+/* ───── Fixed-size glass icon button ───── */
+@layer components {
+  .glass-icon-btn {
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+
+/* Prevent any horizontal scroll in seller portal on mobile */
+html, body { max-width: 100vw; }
+main { max-width: 100%; }
+.seller-content { overflow-x: hidden; }
+.seller-content * { max-width: 100%; }
+
+/* ─── Kill ALL horizontal scroll globally ─── */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+#root {
+  overflow-x: clip;
+  max-width: 100vw;
+}
+table { min-width: 0 !important; }
+.seller-content { overflow-x: clip !important; max-width: 100% !important; }
+.seller-content > * { max-width: 100%; min-width: 0; }

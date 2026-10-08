@@ -5,6 +5,7 @@ import { useBadgeCounts } from './hooks/useBadgeCounts';
 import Brand from '../components/ui/Brand';
 import Icon from '../components/ui/Icon';
 import { useTheme } from '../contexts/ThemeContext';
+import SellerInstallPrompt from './components/SellerInstallPrompt';
 
 const NAV_ITEMS = [
   { section: 'Overview' },
@@ -83,7 +84,7 @@ export default function SellerLayout() {
             return (
               <div
                 key={`s-${i}`}
-                className="text-[10px] font-extrabold text-muted uppercase tracking-[1.2px] px-3 pt-4 pb-2"
+                className="text-[10px] font-extrabold text-ink-3 uppercase tracking-[1.2px] px-3 pt-4 pb-2"
               >
                 {item.section}
               </div>
@@ -104,7 +105,7 @@ export default function SellerLayout() {
                 `flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[13px] font-semibold transition mb-0.5 ${
                   isActive
                     ? 'bg-brand-light text-brand font-extrabold relative before:absolute before:left-0 before:top-1/5 before:bottom-1/5 before:w-[3px] before:bg-brand before:rounded-r'
-                    : 'text-ink-2 hover:bg-surface-2 hover:text-brand'
+                    : 'text-ink font-semibold hover:bg-brand-light hover:text-brand'
                 }`
               }
             >
@@ -151,7 +152,7 @@ export default function SellerLayout() {
 
   return (
     <div className="h-screen flex overflow-hidden">
-      <aside className="hidden md:flex flex-col w-[260px] glass-tile-flat rounded-none border-r border-line/60 shrink-0">
+      <aside className="hidden md:flex flex-col w-[260px] bg-surface/95 dark:bg-[#0E1322]/95 backdrop-blur-xl rounded-none border-r border-line shrink-0">
         <SidebarContent />
       </aside>
 
@@ -182,12 +183,16 @@ export default function SellerLayout() {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-6">
+        <div className="seller-content flex-1 overflow-y-auto overflow-x-hidden p-3 md:p-6">
           <Outlet />
         </div>
       </main>
+      <SellerInstallPrompt />
     </div>
   );
 }
+
+
+
 
 

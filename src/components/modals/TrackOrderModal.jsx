@@ -12,7 +12,16 @@ export default function TrackOrderModal() {
   const [searched, setSearched] = useState(false);
 
   useEffect(() => {
-    const onOpen = () => { setOpen(true); setQuery(''); setOrders([]); setSearched(false); };
+   const onOpen = (e) => {
+  const prefill = e?.detail?.orderNumber || '';
+  setOpen(true);
+  setQuery(prefill);
+  setOrders([]);
+  setSearched(false);
+  if (prefill) {
+    setTimeout(() => search(), 100);
+  }
+};
     document.addEventListener('open-track', onOpen);
     return () => document.removeEventListener('open-track', onOpen);
   }, []);
@@ -142,3 +151,4 @@ export default function TrackOrderModal() {
     </Modal>
   );
 }
+

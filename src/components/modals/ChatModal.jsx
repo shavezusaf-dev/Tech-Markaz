@@ -279,7 +279,11 @@ export default function ChatModal() {
     }
   };
 
-  const isMine = (m) => m.sender_type === 'customer';
+  const isMine = (m) => {
+    if (!user) return false;
+    if (m.sender_id && m.sender_id === user.id) return true;
+    return m.sender_type === 'customer';
+  };
   const productBarImg = product ? parseImgs(product.images)[0] : null;
 
   return (
@@ -523,3 +527,4 @@ export default function ChatModal() {
     </Modal>
   );
 }
+

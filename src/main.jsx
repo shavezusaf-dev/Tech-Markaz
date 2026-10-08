@@ -9,6 +9,7 @@ import { CartProvider } from './contexts/CartContext';
 import { WishlistProvider } from './contexts/WishlistContext';
 import { AddressProvider } from './contexts/AddressContext';
 import ScrollToTop from './components/ui/ScrollToTop';
+import AppManifest from './components/ui/AppManifest';
 import './index.css';
 
 // Register service worker for PWA
@@ -21,7 +22,7 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ScrollToTop />
+      <ScrollToTop />`n      <AppManifest />
       <ThemeProvider>
         <ToastProvider>
           <AuthProvider>
@@ -38,3 +39,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+

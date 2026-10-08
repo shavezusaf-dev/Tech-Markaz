@@ -195,12 +195,8 @@ export default function CheckoutModal() {
         }
 
         let { error } = await supabase.from('orders').insert([payload]);
-        if (error && String(error.message || '').toLowerCase().includes('column')) {
-          // Drop extra columns if DB doesn't have them
-          delete payload.payment_method;
-          delete payload.payment_status;
-          delete payload.payment_proof_url;
-          delete payload.payment_proof_name;
+        if (error && /voucher_code|discount_amount/i.test(error.message || '')) {
+          // Only strip the voucher columns — never the payment columns
           delete payload.voucher_code;
           delete payload.discount_amount;
           const retry = await supabase.from('orders').insert([payload]);
@@ -480,3 +476,6 @@ export default function CheckoutModal() {
     </Modal>
   );
 }
+
+
+

@@ -1,4 +1,5 @@
 ﻿{
+  "id": "/",
   "name": "Tech Markaz — Premium Electronics Marketplace",
   "short_name": "Tech Markaz",
   "description": "Pakistan's premium marketplace for smartphones, audio, smart TVs, and more — with verified sellers and fast nationwide delivery.",
@@ -44,3 +45,4 @@
     }
   ]
 }
+
